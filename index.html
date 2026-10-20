@@ -89,12 +89,6 @@ html.anim .fade-up.in{opacity:1;transform:translateY(0);transition:opacity .9s c
 .btn-amber.block{justify-content:center;width:100%;}
 .hero-content .btn-amber{font-size:13px;padding:14px 22px;gap:8px;align-self:flex-start;}
 .hero-content .btn-amber .arr{font-size:16px;}
-/* Submit button matching norydentistry.com/connect-with-us */
-.btn-submit{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;height:60px;background:transparent;color:var(--amber);
-  font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:.5px;text-transform:uppercase;
-  border:none;border-radius:3px;padding:0 24px;cursor:pointer;transition:color .3s ease, background-color .3s ease;}
-.btn-submit .submit-arrow{flex:none;}
-.btn-submit.tapped{color:var(--off-white);}
 
 /* ---------- Image fills + parallax holder ---------- */
 .fill-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
@@ -334,17 +328,7 @@ section{width:100%;}
 .contact{background:var(--forest);display:flex;gap:56px;align-items:flex-start;}
 .contact-form{flex:1;display:flex;flex-direction:column;gap:24px;}
 .contact-form .display-outline{font-size:clamp(30px,3.6vw,50px);}
-.form-row{display:flex;gap:16px;}
-.field{display:flex;flex-direction:column;gap:8px;flex:1;}
-.field label{font-family:var(--font-ui);font-weight:600;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,254,253,0.7);}
-.field input,.field textarea{
-  font-family:var(--font-ui);font-size:16px;color:var(--white);
-  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:23px;padding:14px 18px;width:100%;
-  transition:border-color .3s ease;
-}
-.field textarea{border-radius:18px;resize:vertical;min-height:120px;}
-.field input::placeholder,.field textarea::placeholder{color:rgba(255,254,253,0.4);}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--rose);}
+#myFormEmbed{display:block;width:100%;border:0;}
 .form-deal{display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-weight:400;font-size:16px;line-height:1.4;color:var(--off-white);background:rgba(255,177,40,0.12);border:1px solid rgba(255,177,40,0.4);border-radius:14px;padding:14px 18px;}
 .form-deal .fd-pct{flex:none;font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--amber);line-height:1;}
 .form-deal strong{color:var(--amber);font-weight:700;}
@@ -450,7 +434,6 @@ section{width:100%;}
   .proc-stat{padding:12px 14px;min-width:45%;}
   .proc-stat:not(:first-child){border-left:none;}
   .btn-amber{font-size:13px;padding:14px 22px;gap:8px;letter-spacing:.6px;white-space:nowrap;}
-  .form-row{flex-direction:column;}
   .faq-q .q-text{font-size:20px;}
   .contact-info{gap:28px;}
 }
@@ -459,7 +442,6 @@ section{width:100%;}
 @media (hover:hover) and (pointer:fine){
   .btn-amber:hover{background:#ffbf4d;}
   .btn-amber:hover .arr{transform:translateX(4px);}
-  .btn-submit:hover{color:var(--off-white);}
   .header-book:hover{background:#ffbf4d;}
   .main-nav a:hover{color:var(--amber);}
   .nav-toggle:hover{background:var(--off-white);}
@@ -680,23 +662,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Contact -->
 <section class="contact sec-pad" id="contact">
-  <form class="contact-form" id="consultForm">
+  <div class="contact-form">
     <div>
       <span class="eyebrow" style="display:block;margin-bottom:14px;">Get Started</span>
       <h2 class="display-outline reveal">Request your TMJ consultation</h2>
     </div>
     <p class="form-deal"><span class="fd-pct">$250</span><span>Limited-time offer: book your consultation through this page and save <strong>$250</strong> on your Emface TMJ package.</span></p>
-    <div class="form-row">
-      <div class="field"><label for="fn">First name</label><input id="fn" name="fn" type="text" placeholder="Jane" required></div>
-      <div class="field"><label for="ln">Last name</label><input id="ln" name="ln" type="text" placeholder="Doe" required></div>
-    </div>
-    <div class="form-row">
-      <div class="field"><label for="em">Email</label><input id="em" name="em" type="email" placeholder="jane@email.com" required></div>
-      <div class="field"><label for="ph">Phone</label><input id="ph" name="ph" type="tel" placeholder="(941) 000-0000"></div>
-    </div>
-    <div class="field"><label for="msg">Message</label><textarea id="msg" name="msg" placeholder="Tell us about your jaw symptoms and how long they have been going on..."></textarea></div>
-    <button class="btn-submit" type="submit"><svg class="submit-arrow" width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><defs><mask id="subArrowMask"><rect width="44" height="44" fill="white"></rect><g transform="translate(9.5,16)"><path d="M25 6L15 0.226497V11.7735L25 6ZM0 7H16V5H0V7Z" fill="black"></path></g></mask></defs><circle cx="22" cy="22" r="22" fill="#FFB128" mask="url(#subArrowMask)"></circle></svg><span>Submit</span></button>
-  </form>
+    <iframe src="https://api.aevadigital.com/api/v1/forms/606/form-view/" title="Request your TMJ consultation" width="100%"
+      onload="onPageLoad('production')" id="myFormEmbed" frameborder="0"></iframe>
+    <script type="text/javascript" src="https://aeva-static-bucket.s3.amazonaws.com/static/js/embedAevaScript.js"></script>
+  </div>
   <div class="map-col">
     <div class="mc-head">
       <span class="eyebrow" style="display:block;margin-bottom:10px;">Visit Us</span>
@@ -856,7 +831,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var fineMQ = window.matchMedia ? window.matchMedia('(hover:hover) and (pointer:fine)') : null;
     function isTouch(){ return !(fineMQ && fineMQ.matches); }
     var CARD='.stat,.sym-card,.feat,.proc-stat,.proc-cards .pc,.rev-card,.dv-card';
-    var PRESS='.btn-amber,.btn-submit,.header-book,.nav-toggle,.main-nav a,.nav-panel a,.opt,.quiz-back,.social-link';
+    var PRESS='.btn-amber,.header-book,.nav-toggle,.main-nav a,.nav-panel a,.opt,.quiz-back,.social-link';
     document.addEventListener('touchstart', function(){}, {passive:true}); /* enables :active on iOS */
     document.addEventListener('click', function(e){
       if(!isTouch()) return;
@@ -954,19 +929,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if(msg){ msg.value='I completed the Emface for TMJ quiz. My main symptom: '+QUIZ[0].opts[answers[0]||0]+'. How often: '+QUIZ[1].opts[answers[1]||0]+'.'; }
       e.preventDefault();
       if(lenis){ lenis.scrollTo(el,{offset:-70}); } else { el.scrollIntoView({behavior:'smooth'}); }
-      setTimeout(function(){ var fn=document.getElementById('fn'); if(fn) fn.focus(); }, 700);
     }); }
   }
   renderStep();
-
-  /* ---------- Contact form ---------- */
-  var form=document.getElementById('consultForm');
-  if(form){ form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var btn=form.querySelector('button[type=submit]');
-    btn.textContent='Thank you! We will be in touch.';
-    btn.style.pointerEvents='none';
-  }); }
 
   /* ---------- Procedure video: play while in view ---------- */
   (function(){
